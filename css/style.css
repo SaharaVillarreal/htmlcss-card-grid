@@ -65,6 +65,16 @@ a {
 	font-size: 32px;
 }
 
+.row {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+}
+
+.banner {
+	order: -1;
+	grid-column: 1 / -1;
+}
 
 /* Stile delle card */
 .card {
@@ -126,8 +136,33 @@ a {
 
 /* Il menu è già fatto: da 576px le voci al posto dell'icona */
 @media screen and (min-width: 576px) {
-	.left-nav { display: flex; }
-	.bi-list { display: none; }
+	.left-nav {
+		display: flex;
+	}
+
+	.bi-list {
+		display: none;
+	}
+
+	.row {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (min-width: 780px) {
+	.row {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.banner {
+		order: 1;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.row {
+		grid-template-columns: repeat(4, 1fr);
+	}
 }
 
 /* Da qui in giù scrivi tu: le colonne con Grid e il banner */
